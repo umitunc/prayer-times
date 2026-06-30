@@ -19,6 +19,13 @@ export class InMemoryLocationRepository implements ILocationRepository {
     },
     {
       country: 'Turkey',
+      city: 'Gaziantep',
+      latitude: 37.0662,
+      longitude: 37.3833,
+      timezone: 'Europe/Istanbul',
+    },
+    {
+      country: 'Turkey',
       city: 'Ankara',
       latitude: 39.9334,
       longitude: 32.8597,

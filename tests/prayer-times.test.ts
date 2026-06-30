@@ -17,6 +17,12 @@ describe('Prayer Times Reference & Seasonal Tests', () => {
       expected: { fajr: '03:24', dhuhr: '13:11', asr: '17:11', maghrib: '20:47', isha: '22:38' }
     },
     {
+      city: 'Gaziantep',
+      country: 'Turkey',
+      dateStr: '2026-06-21', // Summer Solstice
+      expected: { fajr: '03:18', dhuhr: '12:37', asr: '16:29', maghrib: '20:01', isha: '21:39' }
+    },
+    {
       city: 'Istanbul',
       country: 'Turkey',
       dateStr: '2026-12-21', // Winter Solstice
