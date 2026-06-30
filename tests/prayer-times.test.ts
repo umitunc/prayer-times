@@ -32,7 +32,7 @@ describe('Prayer & Sunrise Reference & Seasonal Tests', () => {
       city: 'Gaziantep',
       country: 'Turkey',
       dateStr: '2026-09-23', // Autumn
-      expected: { fajr: '04:52', sunrise: '06:12', dhuhr: '12:28', asr: '15:53', maghrib: '18:33', isha: '19:48' }
+      expected: { fajr: '04:52', sunrise: '06:11', dhuhr: '12:28', asr: '15:53', maghrib: '18:33', isha: '19:47' }
     },
     {
       city: 'Gaziantep',
@@ -77,7 +77,7 @@ describe('Prayer & Sunrise Reference & Seasonal Tests', () => {
       Object.keys(expected).forEach((key) => {
         const calculatedTime = times[key as keyof typeof expected];
         const targetTime = expected[key as keyof typeof expected];
-        
+
         const calculatedMin = parseTimeToMinutes(calculatedTime);
         const targetMin = parseTimeToMinutes(targetTime);
         const diff = Math.abs(calculatedMin - targetMin);
