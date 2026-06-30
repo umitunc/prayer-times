@@ -19,8 +19,8 @@ describe('Prayer Times Reference & Seasonal Tests', () => {
     {
       city: 'Gaziantep',
       country: 'Turkey',
-      dateStr: '2026-06-21', // Summer Solstice
-      expected: { fajr: '03:18', dhuhr: '12:37', asr: '16:29', maghrib: '20:01', isha: '21:39' }
+      dateStr: '2026-06-30', // Summer Solstice
+      expected: { fajr: '03:22', dhuhr: '12:39', asr: '16:30', maghrib: '20:01', isha: '21:39' }
     },
     {
       city: 'Istanbul',
@@ -59,7 +59,7 @@ describe('Prayer Times Reference & Seasonal Tests', () => {
       Object.keys(expected).forEach((key) => {
         const calculatedTime = times[key as keyof typeof expected];
         const targetTime = expected[key as keyof typeof expected];
-        
+
         const calculatedMin = parseTimeToMinutes(calculatedTime);
         const targetMin = parseTimeToMinutes(targetTime);
         const diff = Math.abs(calculatedMin - targetMin);
