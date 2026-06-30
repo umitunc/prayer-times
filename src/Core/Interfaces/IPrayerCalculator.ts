@@ -3,6 +3,7 @@ export interface CalculationParams {
   longitude: number;
   date: Date;
   method?: string; // e.g. "Diyanet", "MWL", "ISNA"
+  timezone?: string; // e.g. "Europe/Istanbul", "UTC"
 }
 
 export interface CalculatedPrayerTimes {

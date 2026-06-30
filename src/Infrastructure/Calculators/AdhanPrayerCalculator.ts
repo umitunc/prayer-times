@@ -22,15 +22,25 @@ export class AdhanPrayerCalculator implements IPrayerCalculator {
     const prayerTimes = new PrayerTimes(coordinates, params.date, adhanParams);
 
     const formatTime = (date: Date): string => {
-      // Return HH:MM in timezone-local or simple format
-      // Note: Adhan dates are UTC. We should format them in local time or simple HH:MM using standard options
-      const pad = (n: number) => n.toString().padStart(2, '0');
-      
-      // Since this is a microservice, we will return the times in the location's local time or standard format.
-      // Typically we'd use timezone offsets, but here we can format them using UTC or local depending on requirement.
-      // Let's format to simple HH:MM in local timezone of the server, or we can format according to timezone offset if provided.
-      // For now, let's return HH:MM based on standard date hours/minutes.
-      return `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+      const tz = params.timezone || 'UTC';
+      try {
+        const formatter = new Intl.DateTimeFormat('en-GB', {
+          timeZone: tz,
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        });
+        return formatter.format(date);
+      } catch (e) {
+        // Fallback to UTC if timezone is invalid
+        const formatter = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'UTC',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        });
+        return formatter.format(date);
+      }
     };
 
     return {
