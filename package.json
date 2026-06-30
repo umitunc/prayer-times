@@ -5,19 +5,20 @@
   "main": "dist/app.js",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch src/app.ts",
-    "build": "bun build ./src/app.ts --outdir ./dist --target node",
-    "start": "bun run src/app.ts",
-    "test": "bun test"
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "test": "node --import tsx tests/prayer-times.test.ts"
   },
   "dependencies": {
     "@fastify/swagger": "^9.0.0",
     "@scalar/fastify-api-reference": "^1.25.0",
-    "adhan": "^4.4.6",
+    "adhan": "^4.4.4",
     "fastify": "^4.28.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
+    "tsx": "^4.19.1",
     "typescript": "^5.5.2"
   }
 }
