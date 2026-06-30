@@ -1,0 +1,23 @@
+{
+  "name": "prayer-times-api",
+  "version": "1.0.0",
+  "description": "High-performance, low-resource Dockerized prayer times microservice with SOLID principles",
+  "main": "dist/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/app.ts",
+    "build": "bun build ./src/app.ts --outdir ./dist --target node",
+    "start": "bun run src/app.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@fastify/swagger": "^9.0.0",
+    "@scalar/fastify-api-reference": "^1.25.0",
+    "adhan": "^4.4.6",
+    "fastify": "^4.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "typescript": "^5.5.2"
+  }
+}
